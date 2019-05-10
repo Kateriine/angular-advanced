@@ -1,4 +1,10 @@
-import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
+import {
+  Directive,
+  Input,
+  OnInit,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 
 export interface CarouselContext {
   $implicit: string;
@@ -9,10 +15,9 @@ export interface CarouselContext {
 }
 
 @Directive({
-  selector: '[appCarousel]'
+  selector: '[appCarousel]',
 })
 export class CarouselDirective implements OnInit {
-
   @Input('appCarouselFrom') images: string[];
 
   context: CarouselContext | null = null;
@@ -21,17 +26,15 @@ export class CarouselDirective implements OnInit {
   constructor(
     private templateRef: TemplateRef<CarouselContext>,
     private viewContainerRef: ViewContainerRef
-  ) {
-  }
-
+  ) {}
 
   ngOnInit(): void {
     this.context = {
       $implicit: this.images[0],
       controller: {
         next: () => this.next(),
-        prev: () => this.prev()
-      }
+        prev: () => this.prev(),
+      },
     };
 
     this.viewContainerRef.createEmbeddedView(this.templateRef, this.context);
@@ -52,5 +55,4 @@ export class CarouselDirective implements OnInit {
     }
     this.context.$implicit = this.images[this.index];
   }
-
 }

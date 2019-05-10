@@ -1,22 +1,25 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'performance-demo-page',
   templateUrl: './demo-page.component.html',
-  styleUrls: ['./demo-page.component.css']
+  styleUrls: ['./demo-page.component.css'],
 })
 export class DemoPageComponent implements OnInit {
-
+  cls: string = 'test';
   condition = false;
   isVisible = false;
-  images = ['/assets/images/img1.png', '/assets/images/img2.png', '/assets/images/img3.png', '/assets/images/img4.png', '/assets/images/img5.png'];
+  images = [
+    '/assets/images/img1.png',
+    '/assets/images/img2.png',
+    '/assets/images/img3.png',
+    '/assets/images/img4.png',
+    '/assets/images/img5.png',
+  ];
 
-  constructor() {
+  constructor() {}
 
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   click(): void {
     console.log('click!');
@@ -29,5 +32,4 @@ export class DemoPageComponent implements OnInit {
   toggleSpinner(): void {
     this.isVisible = !this.isVisible;
   }
-
 }
