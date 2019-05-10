@@ -2,38 +2,40 @@
 
 <app-button type="primary" (click)="click()">Custom Button</app-button>
 
-<hr>
+<hr />
 
 <h2>Custom NgIf</h2>
 
 <button type="button" (click)="toggleCondition()">Show/Hide</button>
 
-<pre>Condition: {{condition}}</pre>
-<br>
+<pre>Condition: {{ condition }}</pre>
+<br />
 
-<div *appNgIf="condition">This content is shown only if the condition is true</div>
+<div *appNgIf="condition">
+  This content is shown only if the condition is true
+</div>
 
-<hr>
+<hr />
 
 <h2>Spinner</h2>
 
 <button type="button" (click)="toggleSpinner()">Show/Hide</button>
 
-<pre>Spinner displayed: {{isVisible}}</pre>
+<pre>Spinner displayed: {{ isVisible }}</pre>
 
-<div *appSpinner="isVisible" class="content-block">
+<div *throbber="isVisible; class: 'throbber--padded'" class="content-block">
   This element will be hidden when the spinner is displayed
 </div>
 
-<hr>
+<hr />
 
 <h2>Carousel</h2>
 
-<div *appCarousel="let image from images; let ctrl = controller" class="carousel">
+<!-- <div *appCarousel="let image from images; let ctrl = controller" class="carousel">
   <img [src]="image">
 
   <div>
     <button (click)="ctrl.prev()">Previous</button>
     <button (click)="ctrl.next()">Next</button>
   </div>
-</div>
+</div> -->
